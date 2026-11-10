@@ -28,14 +28,21 @@ retChar x
   |x == 0 = "x"
   |otherwise = retorne2 (base x)
 
-contMd :: Int->Int
-contMd 0 = 0
-contMd n
-  |retChar n == "mestre" = 1 + contMd(n - 1)
-  |otherwise = contMd (n - 1)
+contMest :: Int->Int
+contMest 0 = 0
+contMest n
+  |retChar n == "mestre" = 1 + contMest(n - 1)
+  |otherwise = contMest (n - 1)
 
 contDoc :: Int->Int
 contDoc 0 = 0
 contDoc n
   |retChar n == "doutor" = 1 + contDoc(n - 1)
   |otherwise = contDoc (n - 1)
+
+contMD :: String->[(String, Int), (String, Int)]
+contMD n = aux n 0 0
+  where 
+    aux 0 doutores mestres = [("doutores", doutores), ("mestres", mestres)]
+    aux x doutores mestres
+    | retorne2 (base)
